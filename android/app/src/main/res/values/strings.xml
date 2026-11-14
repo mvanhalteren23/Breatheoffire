@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Breath of Fire II: Rekindled</string>
+    <string name="title_activity_main">Breath of Fire II: Rekindled</string>
+    <string name="package_name">com.bof2.rekindled</string>
+    <string name="custom_url_scheme">com.bof2.rekindled</string>
+</resources>

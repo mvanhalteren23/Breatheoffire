@@ -1,0 +1,218 @@
+/* Breath of Fire II: Rekindled — Mobile-First HD-2D Touch HUD Styles */
+
+.bof-hud-root {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: #f8fafc;
+}
+
+.bof-hud-interactive {
+  pointer-events: auto;
+}
+
+/* Portrait Orientation Guard */
+.landscape-guard {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 24px;
+  background: radial-gradient(circle at center, #172542 0%, #090e1a 100%);
+  text-align: center;
+  pointer-events: auto;
+}
+
+.landscape-guard-card {
+  max-width: 340px;
+  padding: 24px;
+  border-radius: 16px;
+  border: 1px solid rgba(245, 158, 11, 0.55);
+  background: rgba(15, 23, 42, 0.92);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.65);
+}
+
+/* Glassmorphic Fantasy Panel */
+.bof-panel {
+  background: linear-gradient(160deg, rgba(15, 23, 42, 0.88) 0%, rgba(10, 16, 29, 0.94) 100%);
+  border: 1px solid rgba(251, 191, 36, 0.32);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* Touch Target Base (>= 48px x 48px) */
+.bof-touch-btn {
+  min-width: 48px;
+  min-height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border-radius: 12px;
+  border: 1px solid rgba(148, 163, 184, 0.3);
+  background: rgba(30, 41, 59, 0.86);
+  color: #f8fafc;
+  font-weight: 600;
+  font-size: 12px;
+  cursor: pointer;
+  touch-action: manipulation;
+  transition: transform 0.1s ease, border-color 0.15s ease, background 0.15s ease;
+  padding: 6px 10px;
+}
+
+.bof-touch-btn:active {
+  transform: scale(0.95);
+}
+
+.bof-touch-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.bof-touch-btn--primary {
+  background: linear-gradient(135deg, rgba(217, 119, 6, 0.92) 0%, rgba(180, 83, 9, 0.95) 100%);
+  border-color: rgba(253, 224, 71, 0.65);
+  color: #fffbeb;
+  box-shadow: 0 6px 18px rgba(217, 119, 6, 0.35);
+}
+
+.bof-touch-btn--active {
+  border-color: #fbbf24;
+  background: rgba(217, 119, 6, 0.25);
+  box-shadow: 0 0 0 1px rgba(251, 191, 36, 0.55);
+}
+
+/* Top HUD Row */
+.bof-top-bar {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 8px 12px 0 12px;
+  width: 100%;
+}
+
+/* Bottom HUD Row */
+.bof-bottom-bar {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 0 14px 12px 14px;
+  width: 100%;
+}
+
+/* Virtual Thumbstick */
+.bof-thumbstick-zone {
+  position: relative;
+  width: 112px;
+  height: 112px;
+  border-radius: 9999px;
+  border: 2px solid rgba(251, 191, 36, 0.45);
+  background: radial-gradient(circle, rgba(30, 41, 59, 0.52) 0%, rgba(15, 23, 42, 0.8) 100%);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45), inset 0 0 18px rgba(251, 191, 36, 0.08);
+  touch-action: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: auto;
+  flex-shrink: 0;
+}
+
+.bof-thumbstick-crosshair {
+  position: absolute;
+  inset: 14px;
+  border-radius: 9999px;
+  border: 1px dashed rgba(148, 163, 184, 0.28);
+  pointer-events: none;
+}
+
+.bof-thumbstick-knob {
+  width: 48px;
+  height: 48px;
+  border-radius: 9999px;
+  background: radial-gradient(circle at 35% 35%, #fde68a 0%, #d97706 70%, #92400e 100%);
+  border: 2px solid rgba(255, 251, 235, 0.85);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.55);
+  pointer-events: none;
+  will-change: transform;
+}
+
+/* Drawer Overlay */
+.bof-drawer-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  background: rgba(5, 8, 16, 0.7);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  pointer-events: auto;
+}
+
+.bof-drawer-sheet {
+  width: min(860px, 100%);
+  max-height: min(92vh, 560px);
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.bof-drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 14px;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+  background: rgba(15, 23, 42, 0.95);
+}
+
+.bof-drawer-body {
+  padding: 12px 14px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Mini Progress Bars */
+.bof-bar-track {
+  width: 100%;
+  height: 5px;
+  border-radius: 9999px;
+  background: rgba(15, 23, 42, 0.85);
+  overflow: hidden;
+}
+
+.bof-bar-fill {
+  height: 100%;
+  border-radius: 9999px;
+  transition: width 0.2s ease;
+}
+
+/* Compact scrollbars inside drawers */
+.bof-drawer-body::-webkit-scrollbar {
+  width: 6px;
+}
+.bof-drawer-body::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.35);
+  border-radius: 9999px;
+}
